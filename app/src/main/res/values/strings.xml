@@ -5,4 +5,12 @@
     <string name="soukHiraf">سوق . الحرف</string>
     <string name="hiraf">Hiraf</string>
     <string name="tunisia_s_artisan_marketplace">Tunisia\'s Artisan Marketplace</string>
+    <string name="welcome_desc">a welcome screen</string>
+    <string name="where_local_shops_meet">Where local      shops meet</string>
+    <string name="artisans">artisans</string>
+    <string name="welcome_parag">A marketplace connecting cafes, boutiques stores with neighbor makers.</string>
+    <string name="welcome_stat">+200 makers across Tunisia</string>
+    <string name="sign_in_to_your_account">Sign in to your account</string>
+    <string name="already_a_member">already a member?</string>
+    <string name="join_the_community">Join the community</string>
 </resources>
