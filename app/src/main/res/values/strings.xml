@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="loadingbackground">loadingBackground</string>
+    <string name="souk">Souk</string>
+    <string name="soukHiraf">سوق . الحرف</string>
+    <string name="hiraf">Hiraf</string>
+    <string name="tunisia_s_artisan_marketplace">Tunisia\'s Artisan Marketplace</string>
+</resources>
