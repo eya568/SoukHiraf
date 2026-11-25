@@ -7,4 +7,6 @@
     <color name="tertiary">#89471F</color>
     <color name="secondary_button">#FFFAF7</color>
     <color name="sub_text">#6B5E55</color>
+    <color name="input_border">#E6DDD5</color>
+
 </resources>

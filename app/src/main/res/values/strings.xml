@@ -14,7 +14,8 @@
     <string name="already_a_member">already a member?</string>
     <string name="join_the_community">Join the community</string>
     <string name="continue_google">continue wih Google</string>
-    <string name="no_account">don\'t have an account? create an account</string>
+    <string name="no_account">don\'t have an account?</string>
+    <string name="create_account">Create an account</string>
     <string name="or_continue_with">or continue with</string>
     <string name="tagline">Tunisia\'s artisan marketplace</string>
     <string name="email_label">EMAIL ADDRESS\n</string>
@@ -23,4 +24,19 @@
     <string name="password_hint">🔐 •••••••••</string>
     <string name="forgot_password">Forgot your password?</string>
     <string name="sign_in">Sign In</string>
+    <string name="create_account_title">Create your account</string>
+    <string name="step_1_subtitle">Step 1 of 3 - your basic info</string>
+    <string name="signup_as_owner">Sign up as a Shop owner</string>
+    <string name="tell_us_shop">Tell us about your shop</string>
+    <string name="first_name_label">FIRST NAME</string>
+    <string name="first_name_hint">Amira</string>
+    <string name="last_name_label">LAST NAME</string>
+    <string name="last_name_hint">Ben Salaha</string>
+    <string name="phone_label">PHONE NUMBER</string>
+    <string name="phone_hint">📱Phone number</string>
+    <string name="confirm_password_label">CONFIRM PASSWORD</string>
+    <string name="confirm_password_hint">🔐 Confirm your password</string>
+    <string name="continue_arrow">Continue</string>
+    <string name="have_account">Already have an account?</string>
+    <string name="sign_in_link">Sign in</string>
 </resources>

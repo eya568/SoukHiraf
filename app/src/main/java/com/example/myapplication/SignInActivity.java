@@ -1,6 +1,9 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +23,12 @@ public class SignInActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        findViewById(R.id.tvCreateAccount).setOnClickListener(v ->
+                startActivity(new Intent(this, SignUpStep1Activity.class)));
+    }
+
+    public void goTOSignUpActivity(View view) {
+        Intent intent = new Intent(this, SignUpStep1Activity.class);
+        startActivity(intent);
     }
 }
