@@ -4,7 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#C05A38</color>
     <color name="secondary">#89471F</color>
-    <color name="tertiary">#89471F</color>"
+    <color name="tertiary">#89471F</color>
     <color name="secondary_button">#FFFAF7</color>
-    <color name="small_text">#89471F</color>
+    <color name="sub_text">#6B5E55</color>
 </resources>
