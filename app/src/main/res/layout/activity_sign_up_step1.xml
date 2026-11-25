@@ -45,7 +45,6 @@
                 android:textSize="13sp" />
         </LinearLayout>
 
-        <!-- Form sheet (overlaps header) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -167,6 +166,8 @@
                 android:inputType="textPassword" />
 
             <!-- Continue -->
+
+            <!-- Divider -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnContinue"
                 android:layout_width="match_parent"
@@ -176,12 +177,12 @@
                 android:fontFamily="@font/tajawal_bold"
                 android:gravity="center"
                 android:text="@string/continue_arrow"
+                android:onClick="GoToRoleSelection"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:cornerRadius="16dp" />
 
-            <!-- Divider -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

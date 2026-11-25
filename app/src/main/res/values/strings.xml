@@ -39,4 +39,10 @@
     <string name="continue_arrow">Continue</string>
     <string name="have_account">Already have an account?</string>
     <string name="sign_in_link">Sign in</string>
+    <string name="step_2_subtitle">Step 2 of 3 - What best describes you?</string>
+    <string name="role_owner_title">Shop Owner</string>
+    <string name="role_owner_desc">Boutique, café, concept store or retailer</string>
+    <string name="role_artisan_title">Artisan</string>
+    <string name="role_artisan_desc">Home baker, artist, candle maker &amp; more</string>
+    <string name="go_back">Go Back</string>
 </resources>

@@ -28,4 +28,9 @@ public class SignUpStep1Activity extends AppCompatActivity {
         Intent intent = new Intent(this, SignInActivity.class);
         startActivity(intent);
     }
+
+    public void GoToRoleSelection(View view) {
+        Intent intent = new Intent(this,ChooseRoleActivity.class);
+        startActivity(intent);
+    }
 }
