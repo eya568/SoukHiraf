@@ -2,6 +2,10 @@ package com.example.myapplication;
 
 import android.text.TextUtils;
 import android.util.Patterns;
+import android.widget.EditText;
+
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 
 public class ValidationUtils {
 
@@ -47,10 +51,32 @@ public class ValidationUtils {
         return text != null && !text.trim().isEmpty();
     }
 
-    /**
-     * Checks if a web URL is valid (optional, e.g. for shop/artisan links).
-     */
-    public static boolean isValidUrl(String url) {
-        return !TextUtils.isEmpty(url) && Patterns.WEB_URL.matcher(url).matches();
+
+    public static boolean checkField(EditText editText, boolean isValid, String errorMsg) {
+        if (!isValid) {
+            editText.setError(errorMsg);
+            editText.requestFocus();
+            return false;
+        } else {
+            editText.setError(null);
+            return true;
+        }
+    }
+    public static String getSelectedChips(ChipGroup chipGroup) {
+        StringBuilder selectedItems = new StringBuilder();
+
+        for (int i = 0; i < chipGroup.getChildCount(); i++) {
+            Chip chip = (Chip) chipGroup.getChildAt(i);
+
+            if (chip.isChecked()) {
+                if (selectedItems.length() > 0) {
+                    selectedItems.append(", ");
+                }
+
+                selectedItems.append(chip.getText().toString());
+            }
+        }
+
+        return selectedItems.toString();
     }
 }

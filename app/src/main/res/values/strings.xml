@@ -67,4 +67,7 @@
     <string name="e_g_tell_us_about_your_craft_your_story_and_your_workshop">e.g. Tell us about your craft, your story, and your workshop...</string>
     <string name="source_woodwork">Woodwork</string>
     <string name="source_jewelry">Jewelry</string>
+    <string name="welcome_to_souk_hirfa_nyour_account_has_been_created_ndiscover_artisans_near_you">Welcome to Souk Hirfa.\nYour account has been created.\nDiscover artisans near you.</string>
+    <string name="you_re_in">You\'re in!</string>
+    <string name="success_celebration">Success celebration</string>
 </resources>

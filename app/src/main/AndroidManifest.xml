@@ -28,6 +28,7 @@
         <activity
             android:name=".WelcomeActivity"
             android:exported="false"
+
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".SignInActivity"
@@ -47,6 +48,14 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ArtisanSignUpActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".SuccessActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".HomeActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>

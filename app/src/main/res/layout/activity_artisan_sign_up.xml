@@ -8,14 +8,13 @@
     android:background="@color/secondary_button"
     android:fillViewport="true"
     android:overScrollMode="never"
-    tools:context=".ArtisanSignUpActivity"> <!-- Update this to your actual Java class name -->
+    tools:context=".ArtisanSignUpActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Header Section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="180dp"
@@ -45,7 +44,6 @@
                 android:textSize="13sp" />
         </LinearLayout>
 
-        <!-- Form Section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,10 +55,9 @@
             android:paddingEnd="24dp"
             android:paddingBottom="32dp">
 
-            <!-- Brand Name -->
             <TextView
                 style="@style/FieldLabel"
-                android:text="@string/brand_name" /> <!-- Ensure this string exists -->
+                android:text="@string/brand_name" />
 
             <EditText
                 android:id="@+id/etBrandName"
@@ -68,7 +65,6 @@
                 android:hint="@string/name_of_brand"
             android:inputType="text" />
 
-            <!-- Type of Business -->
             <TextView
                 style="@style/FieldLabel"
                 android:layout_marginTop="40dp"
@@ -80,11 +76,10 @@
                 android:hint="@string/select_type"
                 android:inputType="text" />
 
-            <!-- Making (Chips) -->
             <TextView
                 style="@style/FieldLabel"
                 android:layout_marginTop="40dp"
-                android:text="@string/what_are_you_making" /> <!-- Ensure this string exists -->
+                android:text="@string/what_are_you_making" />
 
             <com.google.android.material.chip.ChipGroup
                 android:id="@+id/chipGroupMaking"
@@ -151,11 +146,10 @@
 
             </com.google.android.material.chip.ChipGroup>
 
-            <!-- Short Bio -->
             <TextView
                 style="@style/FieldLabel"
                 android:layout_marginTop="40dp"
-                android:text="@string/short_bio" /> <!-- Ensure this string exists -->
+                android:text="@string/short_bio" />
 
             <EditText
                 android:id="@+id/etBrandBio"
@@ -168,7 +162,6 @@
                 android:minLines="3"
             android:padding="12dp" />
 
-            <!-- Buttons -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnContinueArtisan"
                 android:layout_width="match_parent"
