@@ -83,6 +83,8 @@ public class ShopOwnerSignUpActivity extends AppCompatActivity {
         );
 
         if (isInserted) {
+            SessionManager sessionManager = new SessionManager(this);
+            sessionManager.createLoginSession(email, "SHOP_OWNER");
             Toast.makeText(this, "Account created successfully!", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(

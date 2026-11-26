@@ -22,7 +22,7 @@ public class ArtisanSignUpActivity extends AppCompatActivity {
         binding = ActivityArtisanSignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main, (v, insets) ->   {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -89,6 +89,8 @@ public class ArtisanSignUpActivity extends AppCompatActivity {
         );
 
         if (isInserted) {
+            SessionManager sessionManager = new SessionManager(this);
+            sessionManager.createLoginSession(email, "ARTISAN");
             Toast.makeText(
                     this,
                     "Account created successfully!",

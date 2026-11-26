@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 public class DatabaseHelper {
 
     private static final String DATABASE_NAME = "mydatabase.db";
@@ -31,7 +33,7 @@ public class DatabaseHelper {
 
         database.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_USERS + " (" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_EMAIL + " TEXT, " +
+                COLUMN_EMAIL + " TEXT UNIQUE, " +
                 COLUMN_PASSWORD + " TEXT, " +
                 COLUMN_ROLE + " TEXT, " +
                 COLUMN_FIRST_NAME + " TEXT, " +
@@ -42,7 +44,15 @@ public class DatabaseHelper {
                 COLUMN_SOURCING + " TEXT, " +
                 COLUMN_BIO + " TEXT);");
     }
-
+    public boolean isEmailExists(String email) {
+        Cursor cursor = database.rawQuery(
+                "SELECT 1 FROM " + TABLE_USERS + " WHERE " + COLUMN_EMAIL + " = ?",
+                new String[]{email}
+        );
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        return exists;
+    }
     public static synchronized DatabaseHelper getInstance(Context context) {
         if (instance == null) {
             instance = new DatabaseHelper(context.getApplicationContext());
@@ -56,7 +66,8 @@ public class DatabaseHelper {
 
         ContentValues values = new ContentValues();
         values.put(COLUMN_EMAIL, email);
-        values.put(COLUMN_PASSWORD, password);
+
+        values.put(COLUMN_PASSWORD, BCrypt.hashpw(password, BCrypt.gensalt(12)));
         values.put(COLUMN_ROLE, role);
         values.put(COLUMN_FIRST_NAME, firstName);
         values.put(COLUMN_LAST_NAME, lastName);
@@ -69,17 +80,41 @@ public class DatabaseHelper {
         long result = database.insert(TABLE_USERS, null, values);
         return result != -1;
     }
-    // Inside DatabaseHelper.java
-    public boolean checkUser(String email, String password) {
-        // Query the database to find a matching email and password
+    public String getUserRole(String email) {
         Cursor cursor = database.rawQuery(
-                "SELECT * FROM " + TABLE_USERS + " WHERE " +
-                        COLUMN_EMAIL + " = ? AND " + COLUMN_PASSWORD + " = ?",
-                new String[]{email, password}
+                "SELECT " + COLUMN_ROLE + " FROM " + TABLE_USERS + " WHERE " + COLUMN_EMAIL + " = ?",
+                new String[]{email}
+        );
+        try {
+            if (cursor.moveToFirst()) {
+                return cursor.getString(0);
+            }
+            return null;
+        } finally {
+            cursor.close();
+        }
+    }
+    public boolean checkUser(String email, String password) {
+
+        Cursor cursor = database.rawQuery(
+                "SELECT " + COLUMN_PASSWORD +
+                        " FROM " + TABLE_USERS +
+                        " WHERE " + COLUMN_EMAIL + " = ?",
+                new String[]{email}
         );
 
-        boolean exists = cursor.getCount() > 0;
-        cursor.close();
-        return exists;
+        try {
+            if (cursor.moveToFirst()) {
+
+                String storedHash = cursor.getString(0);
+
+                return BCrypt.checkpw(password, storedHash);
+            }
+
+            return false;
+
+        } finally {
+            cursor.close();
+        }
     }
 }

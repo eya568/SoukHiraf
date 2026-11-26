@@ -31,7 +31,12 @@ public class SignUpStep1Activity extends AppCompatActivity {
             boolean isFirstNameValid = checkField(binding.etFirstName, ValidationUtils.isValidName(firstName), "Enter a valid first name");
             boolean isLastNameValid = checkField(binding.etLastName, ValidationUtils.isValidName(lastName), "Enter a valid last name");
             boolean isEmailValid = checkField(binding.etEmail, ValidationUtils.isValidEmail(email), "Enter a valid email");
-            boolean isPhoneValid = checkField(binding.etPhone, ValidationUtils.isValidPhoneNumber(phone), "Enter a valid 8-digit phone number");
+
+            if (isEmailValid && DatabaseHelper.getInstance(this).isEmailExists(email)) {
+                binding.etEmail.setError("This email is already registered");
+                binding.etEmail.requestFocus();
+                return;
+            }            boolean isPhoneValid = checkField(binding.etPhone, ValidationUtils.isValidPhoneNumber(phone), "Enter a valid 8-digit phone number");
             boolean isPasswordValid = checkField(binding.etPassword, ValidationUtils.isValidPassword(password), "Password must be at least 8 characters");
             boolean isConfirmPasswordValid = checkField(binding.etConfirmPassword, ValidationUtils.doPasswordsMatch(password, confirmPassword), "Passwords do not match");
 

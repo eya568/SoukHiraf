@@ -55,7 +55,7 @@ public class ValidationUtils {
     public static boolean checkField(EditText editText, boolean isValid, String errorMsg) {
         if (!isValid) {
             editText.setError(errorMsg);
-            editText.requestFocus();
+            editText.requestFocus(); // Focuses every invalid field sequentially
             return false;
         } else {
             editText.setError(null);
@@ -64,19 +64,15 @@ public class ValidationUtils {
     }
     public static String getSelectedChips(ChipGroup chipGroup) {
         StringBuilder selectedItems = new StringBuilder();
-
-        for (int i = 0; i < chipGroup.getChildCount(); i++) {
-            Chip chip = (Chip) chipGroup.getChildAt(i);
-
-            if (chip.isChecked()) {
+        for (int id : chipGroup.getCheckedChipIds()) {
+            Chip chip = chipGroup.findViewById(id);
+            if (chip != null) {
                 if (selectedItems.length() > 0) {
                     selectedItems.append(", ");
                 }
-
-                selectedItems.append(chip.getText().toString());
+                selectedItems.append(chip.getText());
             }
         }
-
         return selectedItems.toString();
     }
 }
