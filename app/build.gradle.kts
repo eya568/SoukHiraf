@@ -33,11 +33,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
+
 }
 
 dependencies {
     implementation("androidx.compose.ui:ui-text-google-fonts:1.13.0")
-
+    implementation("org.mindrot:jbcrypt:0.4")
     implementation(libs.activity.ktx)
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)

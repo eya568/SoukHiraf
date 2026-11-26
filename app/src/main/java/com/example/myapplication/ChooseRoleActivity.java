@@ -25,11 +25,14 @@ import com.google.android.material.card.MaterialCardView;
                     v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
                     return insets;
                 });
-
+                String firstName = getIntent().getStringExtra("firstName");
+                String lastName = getIntent().getStringExtra("lastName");
+                String email = getIntent().getStringExtra("email");
+                String phone = getIntent().getStringExtra("phone");
+                String password = getIntent().getStringExtra("password");
                 MaterialCardView cardOwner = findViewById(R.id.cardShopOwner);
                 MaterialCardView cardArtisan = findViewById(R.id.cardArtisan);
                 cardOwner.setChecked(true);
-                // Selection logic
                 cardOwner.setOnClickListener(v -> {
                     cardOwner.setChecked(true);
                     cardArtisan.setChecked(false);
@@ -42,21 +45,23 @@ import com.google.android.material.card.MaterialCardView;
 
                 findViewById(R.id.btnBack).setOnClickListener(v -> finish());
 
-                // Navigation logic
                 findViewById(R.id.btnContinue).setOnClickListener(v -> {
                     Intent intent;
 
                     if (cardOwner.isChecked()) {
-                        // Go to Shop Owner Activity
                         intent = new Intent(ChooseRoleActivity.this, ShopOwnerSignUpActivity.class);
                     } else {
-                        // Go to Artisan Activity
                         intent = new Intent(ChooseRoleActivity.this, ArtisanSignUpActivity.class);
                     }
+                    intent.putExtra("firstName", firstName);
+                    intent.putExtra("lastName", lastName);
+                    intent.putExtra("email", email);
+                    intent.putExtra("phone", phone);
+                    intent.putExtra("password", password);
 
                     startActivity(intent);
                 });
             }
-            
+
         }
 
