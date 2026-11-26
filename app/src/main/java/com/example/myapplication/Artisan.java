@@ -6,7 +6,7 @@ public class Artisan {
     private String rating;
     private String price;
     private int imageResId;
-    public Artisan(String name, String craft, String rating, String price, int imageResId) {
+    public Artisan(String name, String craft, String rating, int imageResId) {
         this.name = name;
         this.craft = craft;
         this.rating = rating;
