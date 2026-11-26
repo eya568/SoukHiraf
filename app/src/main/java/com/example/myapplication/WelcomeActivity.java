@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class WelcomeActivity extends AppCompatActivity {
     Button btn_join;
+    TextView tv_sign_in;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,17 +25,26 @@ public class WelcomeActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        btn_join = findViewById(R.id.btn_join);
+
+        btn_join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WelcomeActivity.this, SignUpStep1Activity.class);
+                startActivity(intent);
+            }
+        });
+        tv_sign_in = findViewById(R.id.tv_sign_in);
+        tv_sign_in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WelcomeActivity.this, SignInActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
-    public void goTOSignUpActivity(View view) {
-        Intent intent = new Intent(this,SignUpStep1Activity.class);
-        startActivity(intent);
 
-    }
-
-    public void GoToSignIn(View view) {
-        Intent intent = new Intent(this,SignInActivity.class);
-        startActivity(intent);
-    }
 }

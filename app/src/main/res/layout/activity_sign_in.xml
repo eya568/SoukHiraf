@@ -82,7 +82,6 @@
             android:hint="@string/email_hint"
             android:inputType="textEmailAddress" />
 
-        <!-- Password -->
         <TextView
             style="@style/FieldLabel"
             android:layout_marginTop="16dp"
@@ -196,7 +195,6 @@
                 android:fontFamily="@font/tajawal_bold"
                 android:padding="4dp"
                 android:text="@string/create_account"
-                android:onClick="goTOSignUpActivity"
                 android:textColor="@color/secondary"
                 android:textSize="11sp"
                 android:textStyle="bold" />

@@ -177,7 +177,6 @@
                 android:fontFamily="@font/tajawal_bold"
                 android:gravity="center"
                 android:text="@string/continue_arrow"
-                android:onClick="GoToRoleSelection"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="16sp"
@@ -264,7 +263,6 @@
                     android:paddingEnd="6dp"
                     android:paddingBottom="8dp"
                     android:text="@string/sign_in_link"
-                    android:onClick="GoToSignIn"
                     android:textColor="@color/primary"
                     android:textSize="13sp"
                     android:textStyle="bold" />

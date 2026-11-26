@@ -40,9 +40,31 @@
     <string name="have_account">Already have an account?</string>
     <string name="sign_in_link">Sign in</string>
     <string name="step_2_subtitle">Step 2 of 3 - What best describes you?</string>
+    <string name="step_3_subtitle">Step 3 of 3 - What best describes you?</string>
+
     <string name="role_owner_title">Shop Owner</string>
     <string name="role_owner_desc">Boutique, café, concept store or retailer</string>
     <string name="role_artisan_title">Artisan</string>
     <string name="role_artisan_desc">Home baker, artist, candle maker &amp; more</string>
     <string name="go_back">Go Back</string>
+    <string name="name_of_shop">Name of Shop</string>
+    <string name="shop_business_name">SHOP/BUSINESS NAME</string>
+    <string name="type_of_business">Type of Business</string>
+    <string name="select_type">Select type</string>
+    <string name="what_are_you_looking_to_source">What are you looking to source?</string>
+
+    <string name="source_baking_goods">Baking Goods</string>
+    <string name="source_art">Art</string>
+    <string name="source_textiles">Textiles</string>
+    <string name="source_candles">Candles</string>
+    <string name="source_ceramic">Ceramic</string>
+    <string name="brand_name">BRAND NAME</string>
+    <string name="name_of_brand">Name of the brand</string>
+    <string name="what_are_you_making">WHAT ARE YOU MAKING?</string>
+    <string name="short_bio">SHORT BIO</string>
+    <string name="anything_else_you_d_like_artisans_to_know">Anything else you\'d like artisans to know?</string>
+    <string name="e_g_we_prefer_weekly_deliveries_eco_friendly_packaging">e.g. we prefer weekly deliveries, eco-friendly packaging...</string>
+    <string name="e_g_tell_us_about_your_craft_your_story_and_your_workshop">e.g. Tell us about your craft, your story, and your workshop...</string>
+    <string name="source_woodwork">Woodwork</string>
+    <string name="source_jewelry">Jewelry</string>
 </resources>
