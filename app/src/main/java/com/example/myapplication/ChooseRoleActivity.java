@@ -57,6 +57,6 @@ import com.google.android.material.card.MaterialCardView;
                     startActivity(intent);
                 });
             }
-            
+
         }
 

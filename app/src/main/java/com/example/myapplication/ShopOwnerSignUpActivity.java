@@ -10,6 +10,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
+
 public class ShopOwnerSignUpActivity extends AppCompatActivity {
 
     @Override
@@ -25,5 +28,6 @@ public class ShopOwnerSignUpActivity extends AppCompatActivity {
         findViewById(R.id.btnBackOwner).setOnClickListener(v -> finish());
 
     }
+
 
     }
