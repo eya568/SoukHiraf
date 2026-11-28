@@ -70,4 +70,9 @@
     <string name="welcome_to_souk_hirfa_nyour_account_has_been_created_ndiscover_artisans_near_you">Welcome to Souk Hirfa.\nYour account has been created.\nDiscover artisans near you.</string>
     <string name="you_re_in">You\'re in!</string>
     <string name="success_celebration">Success celebration</string>
+    <string name="bloom_boutique">Bloom Boutique</string>
+    <string name="good_morning">Good morning</string>
+    <string name="bloom">Bloom</string>
+    <string name="boutique">Boutique</string>
+    <string name="search_hint">Search bakers, artists, candles…</string>
 </resources>
