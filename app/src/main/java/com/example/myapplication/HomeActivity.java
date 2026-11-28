@@ -1,49 +1,48 @@
 package com.example.myapplication;
 
-import static com.example.myapplication.R.*;
-
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.ConcatAdapter;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.myapplication.databinding.ActivityHomeOwnerBinding;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
-    private ActivityHomeOwnerBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_home_owner);
 
-        binding = ActivityHomeOwnerBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        RecyclerView recyclerView = findViewById(R.id.rvMain);
 
-        ViewCompat.setOnApplyWindowInsetsListener(binding.main, (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-        binding.rvArtisans.setLayoutManager(new GridLayoutManager(this, 2));
+        // 1. Header Adapter
+        HeaderAdapter headerAdapter = new HeaderAdapter();
 
-        // 3. Create some dummy data using your Artisan class
+        // 2. Artisan Adapter (Dummy data)
         List<Artisan> artisanList = new ArrayList<>();
 
-        // Replace R.drawable.placeholder_image with actual images if you have them in your drawable folder!
         artisanList.add(new Artisan("Amira's Kitchen", "Home Baker","⭐⭐⭐⭐" ,"35 DT+", R.drawable.placeholder_image));
         artisanList.add(new Artisan("Lumi Studio", "Candles", "⭐⭐⭐","18 DT+", R.drawable.placeholder_image));
         artisanList.add(new Artisan("Pottery Haven", "Ceramics","⭐⭐⭐⭐⭐", "35 DT+", R.drawable.placeholder_image));
         artisanList.add(new Artisan("Goody Shop", "Knitting","⭐⭐⭐", "35 DT+", R.drawable.placeholder_image));
 
-        // 4. Create the Adapter and attach it
-        ArtisanAdapter adapter = new ArtisanAdapter(artisanList);
-        binding.rvArtisans.setAdapter(adapter);    }
+        ArtisanAdapter artisanAdapter = new ArtisanAdapter(artisanList);
+
+        // 3. Combine them!
+        ConcatAdapter concatAdapter = new ConcatAdapter(headerAdapter, artisanAdapter);
+        recyclerView.setAdapter(concatAdapter);
+
+        // 4. Make a 2-column grid, but let the Header (position 0) span both columns!
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 2);
+        layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                // If position is 0 (Header), return 2 (full width). Otherwise return 1 (half width).
+                return position == 0 ? 2 : 1;
+            }
+        });
+        recyclerView.setLayoutManager(layoutManager);
+    }
 }
