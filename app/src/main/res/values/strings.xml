@@ -75,4 +75,12 @@
     <string name="bloom">Bloom</string>
     <string name="boutique">Boutique</string>
     <string name="search_hint">Search bakers, artists, candles…</string>
+    <string name="near_you_tunis">Near you · Tunis</string>
+    <string name="see_all">See all</string>
+    <string name="all">All</string>
+    <string name="browse_by_craft">Browse by craft</string>
+    <string name="explore">Explore</string>
+    <string name="eid_collection_10_now_live">Eid Collection\nNow Live</string>
+    <string name="this_week">THIS WEEK</string>
+    <string name="_2">2</string>
 </resources>

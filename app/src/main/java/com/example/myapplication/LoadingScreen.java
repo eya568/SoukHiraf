@@ -7,25 +7,35 @@ import android.os.Looper;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.example.myapplication.databinding.ActivityLoadingScreenBinding;
 
 public class LoadingScreen extends AppCompatActivity {
+    private ActivityLoadingScreenBinding binding;
     private final Handler handler = new Handler(Looper.getMainLooper());
     private Runnable runnable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_loading_screen);
+        binding = ActivityLoadingScreenBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         runnable = () -> {
-            startActivity(new Intent(LoadingScreen.this, WelcomeActivity.class));
+            SessionManager sessionManager = new SessionManager(LoadingScreen.this);
+            Intent intent;
+            if (sessionManager.isLoggedIn()) {
+                intent = new Intent(LoadingScreen.this, HomeActivity.class);
+            } else {
+                intent = new Intent(LoadingScreen.this, WelcomeActivity.class);
+            }
+            startActivity(intent);
             finish();
         };
         handler.postDelayed(runnable, 2000);
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -33,5 +43,4 @@ public class LoadingScreen extends AppCompatActivity {
             handler.removeCallbacks(runnable);
         }
     }
-    }
-
+}

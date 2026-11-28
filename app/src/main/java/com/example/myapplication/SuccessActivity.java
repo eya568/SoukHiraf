@@ -4,23 +4,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.databinding.ActivitySuccessBinding;
+
 public class SuccessActivity extends AppCompatActivity {
+
+    private ActivitySuccessBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_success);
+        binding = ActivitySuccessBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         String role = getIntent().getStringExtra("role");
-        TextView tvSubtitle = findViewById(R.id.tvSuccessSubtitle);
 
         if ("SHOP_OWNER".equals(role)) {
-            tvSubtitle.setText("Welcome to Souk Hirfa.\nYour shop is ready.\nDiscover artisans near you.");
+            binding.tvSuccessSubtitle.setText("Welcome to Souk Hirfa.\nYour shop is ready.\nDiscover artisans near you.");
         } else {
-            tvSubtitle.setText("Welcome to Souk Hirfa.\nYour artisan profile is ready.\nStart showcasing your crafts.");
+            binding.tvSuccessSubtitle.setText("Welcome to Souk Hirfa.\nYour artisan profile is ready.\nStart showcasing your crafts.");
         }
 
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
