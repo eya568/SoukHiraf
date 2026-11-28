@@ -49,9 +49,11 @@ public class DatabaseHelper {
                 "SELECT 1 FROM " + TABLE_USERS + " WHERE " + COLUMN_EMAIL + " = ?",
                 new String[]{email}
         );
-        boolean exists = cursor.getCount() > 0;
-        cursor.close();
-        return exists;
+        try {
+            return cursor.moveToFirst();
+        } finally {
+            cursor.close();
+        }
     }
     public static synchronized DatabaseHelper getInstance(Context context) {
         if (instance == null) {

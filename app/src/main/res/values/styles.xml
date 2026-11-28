@@ -33,4 +33,29 @@
         <item name="android:textColor">@color/sub_text</item>
         <item name="android:fontFamily">@font/tajawal_regular</item>
     </style>
+
+    <style name="SoukBottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/white</item>
+        <item name="itemIconTint">@color/bottom_nav_item_color</item>
+        <item name="itemTextColor">@color/bottom_nav_item_color</item>
+        <item name="itemRippleColor">#20C05A38</item>
+        <item name="itemActiveIndicatorStyle">@style/SoukBottomNavActiveIndicator</item>
+        <item name="itemTextAppearanceActive">@style/SoukBottomNavTextActive</item>
+        <item name="itemTextAppearanceInactive">@style/SoukBottomNavTextInactive</item>
+    </style>
+
+    <style name="SoukBottomNavActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">#1AC05A38</item>
+        <item name="marginHorizontal">12dp</item>
+    </style>
+
+    <style name="SoukBottomNavTextActive">
+        <item name="android:fontFamily">@font/tajawal_bold</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="SoukBottomNavTextInactive">
+        <item name="android:fontFamily">@font/tajawal_regular</item>
+        <item name="android:textSize">11sp</item>
+    </style>
 </resources>

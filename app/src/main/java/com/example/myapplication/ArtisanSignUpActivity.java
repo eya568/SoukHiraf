@@ -70,7 +70,6 @@ public class ArtisanSignUpActivity extends AppCompatActivity {
             return;
         }
 
-        // Validate selected categories
         if (selectedMaking.isEmpty()) {
             Toast.makeText(
                     this,

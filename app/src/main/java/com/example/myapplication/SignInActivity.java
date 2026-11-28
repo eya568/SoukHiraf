@@ -82,20 +82,13 @@ public class SignInActivity extends AppCompatActivity {
             boolean isValidUser = dbHelper.checkUser(email, password);
 
             if (isValidUser) {
+                String role = dbHelper.getUserRole(email);
+                new SessionManager(this).createLoginSession(email, role);
 
-                Intent intent = new Intent(
-                        SignInActivity.this,
-                        HomeActivity.class
-                );
-
-                intent.setFlags(
-                        Intent.FLAG_ACTIVITY_NEW_TASK |
-                                Intent.FLAG_ACTIVITY_CLEAR_TASK
-                );
-
+                Intent intent = new Intent(SignInActivity.this, HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 finish();
-
             } else {
                 Toast.makeText(
                         this,
